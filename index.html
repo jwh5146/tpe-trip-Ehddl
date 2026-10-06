@@ -4,11 +4,12 @@
 --jade:#1f7a5c;--jade-bg:#e6f5ef;--coral:#b4402b;--coral-bg:#fbeae6;--tour:#5b3fa0;--tour-bg:#efe9fb;--sight-bg:#eaf1fb}
 @media(prefers-color-scheme:dark){:root{--bg:#15131f;--card:#1f1c2e;--ink:#eeeaf7;--muted:#a8a2b8;--line:#37334a;
 --gold-bg:#3a2d12;--jade-bg:#133428;--coral-bg:#3d1f19;--tour-bg:#2b2245;--sight-bg:#1b2a40;--gold:#f0b24f;--jade:#4fd1a1;--coral:#ff8d75;--tour:#b79bff}}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:56px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif;line-height:1.6;font-size:15px}
 .wrap{max-width:760px;margin:0 auto;padding:0 16px 60px}
-nav{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;padding:10px 16px}
-nav a{display:inline-block;margin-right:8px;padding:5px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:13px;font-weight:600}
+nav{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 12px}
+nav .grid{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+nav a{display:block;text-align:center;padding:6px 2px;border-radius:10px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:12.5px;font-weight:700;white-space:nowrap}
 header.hero{padding:34px 0 18px}
 header.hero h1{margin:0 0 6px;font-size:26px;line-height:1.25}
 header.hero p{margin:0;color:var(--muted)}
@@ -58,9 +59,8 @@ ul.check li{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--li
 footer{margin-top:40px;font-size:12px;color:var(--muted);text-align:center}
 @media print{nav{display:none}.day-head .btn,.market-head .btn{display:none}body{background:#fff}}
 </style></head><body>
-<nav>
-<a href="#overview">한눈에 보기</a><a href="#hotel">숙소·도착</a><a href="#itinerary">일정</a><a href="#food">야시장 맛집</a>
-<a href="#budget">예산</a><a href="#checklist">체크리스트</a><a href="#phrase">현지어</a><a href="#transport">교통</a></nav>
+<nav><div class="grid"><a href="#overview">한눈에 보기</a><a href="#hotel">숙소·도착</a><a href="#itinerary">일정</a><a href="#food">야시장 맛집</a>
+<a href="#budget">예산</a><a href="#checklist">체크리스트</a><a href="#phrase">현지어</a><a href="#transport">교통</a></div></nav>
 <div class="wrap">
 <header class="hero"><h1>타이베이 가족여행 가이드</h1>
 <p>2가족 4인 · 2026.11.21(토) ~ 11.24(화) · 3박 4일</p>
