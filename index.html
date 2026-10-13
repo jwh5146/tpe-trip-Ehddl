@@ -69,6 +69,16 @@ nav .srch #qc{font-size:12px;color:var(--muted);white-space:nowrap;font-weight:7
 nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:50%;width:24px;height:24px;font-size:12px;line-height:24px;padding:0;cursor:pointer}
 #qempty{text-align:center;color:var(--muted);padding:40px 0;font-weight:700}
 @media print{nav .srch{display:none}}
+.offline{margin:14px 0 0;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.offline .row{display:flex;gap:8px;flex-wrap:wrap}
+.offline button{flex:1 1 140px;border:0;border-radius:999px;padding:10px 14px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
+.offline #ofl-save{background:var(--gold);color:#1f1b33}
+.offline #ofl-file{background:var(--line);color:var(--ink)}
+.offline button[disabled]{opacity:.55;cursor:default}
+.offline #ofl-msg{margin-top:8px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.offline #ofl-msg.ok{color:var(--jade);font-weight:700}
+.offline #ofl-msg.err{color:var(--coral);font-weight:700}
+@media print{.offline{display:none}}
 </style></head><body>
 <nav><div class="srch"><input id="q" type="search" placeholder="검색 (예: 우육면, 101, 택시, 시먼)" autocomplete="off" enterkeyhint="search"><span id="qc"></span><button id="qx" type="button" aria-label="검색어 지우기">✕</button></div>
 <div class="grid"><a href="#overview">한눈에 보기</a><a href="#hotel">숙소·도착</a><a href="#itinerary">일정</a><a href="#food">야시장 맛집</a>
@@ -79,6 +89,7 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
 <div class="chips">
 <div class="chip"><b>숙소</b>Caesar Metro Taipei (3박)</div>
 <div class="chip"><b>일정안</b>1안(변경)</div></div></header>
+<div class="offline"><div class="row"><button id="ofl-save" type="button">📥 오프라인으로 보기</button><button id="ofl-file" type="button">파일로 저장</button></div><div id="ofl-msg"></div></div>
 <section id="overview"><h2>한눈에 보기</h2>
 <div class="tbl-wrap"><table class="mini"><thead><tr><th>Day</th><th>날짜</th><th>핵심 일정</th></tr></thead><tbody>
 <tr><td>Day 1</td><td>11.21(토)</td><td>도착 · 입국심사 → 호텔 체크인 → 시먼딩 야시장</td></tr>
@@ -356,7 +367,7 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
   var countEl = document.getElementById('qc');
   var clearBtn = document.getElementById('qx');
   var emptyEl = document.getElementById('qempty');
-  var hero = document.querySelector('header.hero');
+  var heroes = Array.prototype.slice.call(document.querySelectorAll('header.hero, .offline'));
   var LEAF = '.stop, ol.rank li, tbody tr, ul.check li, .card, .callout';
   var HEAD = 'h3, .day-head, .market-head';
   var sections = Array.prototype.slice.call(document.querySelectorAll('.wrap > section'));
@@ -406,10 +417,10 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
     if (!q) {
       countEl.textContent = '';
       emptyEl.classList.add('sr-hide');
-      if (hero) hero.classList.remove('sr-hide');
+      heroes.forEach(function (h) { h.classList.remove('sr-hide'); });
       return;
     }
-    if (hero) hero.classList.add('sr-hide');
+    heroes.forEach(function (h) { h.classList.add('sr-hide'); });
     var total = 0;
 
     sections.forEach(function (sec) {
@@ -474,5 +485,97 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
   padBottom();
   window.addEventListener('resize', padBottom);
   window.addEventListener('load', padBottom);
+})();
+
+(function () {
+  var saveBtn = document.getElementById('ofl-save');
+  var fileBtn = document.getElementById('ofl-file');
+  var msg = document.getElementById('ofl-msg');
+  var CACHE = 'tpe-guide-v1';
+  var PAGE = './index.html';
+  var KEY = 'tpeOfflineSavedAt';
+
+  function say(text, cls) {
+    msg.textContent = text;
+    msg.className = cls || '';
+  }
+
+  function stamp() {
+    var d = new Date();
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    return (d.getMonth() + 1) + '/' + d.getDate() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+  }
+
+  var secure = window.isSecureContext && 'serviceWorker' in navigator && 'caches' in window;
+
+  function showSaved() {
+    var at = '';
+    try { at = localStorage.getItem(KEY) || ''; } catch (e) {}
+    saveBtn.textContent = '오프라인 저장됨 ✓ (다시 저장)';
+    say('저장됨' + (at ? ' · ' + at : '') + ' — 비행기 모드에서도 이 주소로 열립니다. 온라인에서 열 때마다 자동으로 최신으로 갱신돼요.', 'ok');
+  }
+
+  function savedPageExists() {
+    if (!secure) return Promise.resolve(false);
+    return caches.match(PAGE, { ignoreSearch: true }).then(function (r) { return !!r; }).catch(function () { return false; });
+  }
+
+  if (!secure) {
+    saveBtn.disabled = true;
+    say('이 주소에서는 오프라인 저장을 쓸 수 없어요. GitHub 주소(https)로 열어서 눌러주세요. "파일로 저장"은 어디서나 가능해요.', 'err');
+  } else {
+    savedPageExists().then(function (ok) {
+      if (ok) showSaved();
+      else say('출발 전에 와이파이에서 한 번 눌러 저장해 두세요.', '');
+    });
+  }
+
+  saveBtn.addEventListener('click', function () {
+    if (!secure) return;
+    saveBtn.disabled = true;
+    say('저장 중…', '');
+    navigator.serviceWorker.register('sw.js').then(function () {
+      return navigator.serviceWorker.ready;
+    }).then(function () {
+      return fetch(PAGE, { cache: 'reload' });
+    }).then(function (res) {
+      if (!res.ok) throw new Error('fetch');
+      return caches.open(CACHE).then(function (c) { return c.put(PAGE, res); });
+    }).then(function () {
+      try { localStorage.setItem(KEY, stamp()); } catch (e) {}
+      if (navigator.storage && navigator.storage.persist) navigator.storage.persist();
+      showSaved();
+    }).catch(function () {
+      say('저장하지 못했어요. 인터넷 연결과 sw.js 업로드 여부를 확인해 주세요.', 'err');
+    }).then(function () {
+      saveBtn.disabled = false;
+    });
+  });
+
+  function download(text) {
+    var blob = new Blob([text], { type: 'text/html;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'taipei-guide.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+  }
+
+  fileBtn.addEventListener('click', function () {
+    say('파일을 만드는 중…', '');
+    fetch(location.pathname.split('?')[0], { cache: 'reload' }).then(function (r) {
+      if (!r.ok) throw new Error('fetch');
+      return r.text();
+    }).catch(function () {
+      var q = document.getElementById('q');
+      if (q && q.value) { q.value = ''; q.dispatchEvent(new Event('input')); }
+      return '<!doctype html>' + document.documentElement.outerHTML;
+    }).then(function (text) {
+      download(text);
+      say('taipei-guide.html 파일을 내려받았어요. 아이폰은 파일 앱에서 열면 미리보기라 일부 기능이 안 될 수 있으니, 가능하면 "오프라인으로 보기"를 함께 사용하세요.', 'ok');
+    });
+  });
 })();
 </script></body></html>
