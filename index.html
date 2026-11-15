@@ -92,6 +92,9 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
 .fa{display:inline-block;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold);border-radius:6px;padding:0 6px;font-weight:800;line-height:1.5}
 .fb{display:inline-block;background:var(--jade-bg);color:var(--jade);border:1px solid var(--jade);border-radius:6px;padding:0 6px;font-weight:800;line-height:1.5}
 .stop .btn-walk{margin-top:8px;background:var(--jade);color:#fff}
+.daynav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 4px}
+.daynav a{display:block;text-align:center;padding:9px 2px;border-radius:10px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:800;font-size:14px}
+@media print{.daynav{display:none}}
 </style></head><body>
 <nav><div class="srch"><input id="q" type="search" placeholder="검색 (예: 우육면, 101, 택시, 시먼)" autocomplete="off" enterkeyhint="search"><span id="qc"></span><button id="qx" type="button" aria-label="검색어 지우기">✕</button></div>
 <div class="grid"><a href="#overview">한눈에 보기</a><a href="#hotel">숙소·도착</a><a href="#itinerary">일정</a><a href="#food">야시장 맛집</a>
@@ -101,7 +104,7 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
 <p>2가족 4인 · 2026.11.21(토) ~ 11.24(화) · 3박 4일</p>
 <div class="chips">
 <div class="chip"><b>숙소</b>Caesar Metro Taipei (3박)</div>
-<div class="chip"><b>일정안</b>1안(변경2)</div><div class="chip"><b>최종 수정</b>2026-11-15 21:42</div></div></header>
+<div class="chip"><b>일정안</b>최종 확정</div><div class="chip"><b>최종 수정</b>2026-11-15 21:51</div></div></header>
 <div class="offline"><div class="row"><button id="ofl-save" type="button">📥 오프라인으로 보기</button><button id="ofl-file" type="button">파일로 저장</button></div><div id="ofl-msg"></div></div>
 <section id="overview"><h2>한눈에 보기</h2>
 <div class="tbl-wrap"><table class="mini"><thead><tr><th>Day</th><th>날짜</th><th>핵심 일정</th></tr></thead><tbody>
@@ -115,9 +118,9 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
 <div class="card"><b>도착일 동선</b><br><span class="fa">A가족</span> 15:55 제2터미널 도착 · <span class="fb">B가족</span> 16:30 제1터미널 도착 → 각자 입국심사·수하물 수취 → <span class="fa">A가족</span> 이지카드 수령(제2터미널 유나이트 트래블러 카운터, 입국장 오른쪽) → <span class="fa">A가족</span>이 공항 MRT(A13→A12) 또는 무료 순환버스로 제1터미널로 이동해 합류 → 클룩 예약 차량(9인승, 4명)으로 호텔(약 45분~1시간).<br><span class="note">클룩 픽업 시각 16:30(현지시간) — 바우처에서 항공편 연동 여부·무료 대기 시간·픽업 터미널 확인</span></div>
 <div class="callout warn"><b>입국카드(TWAC)</b> <span class="fa">A가족</span>은 온라인 등록 완료(확인 메일 PDF 보유), <span class="fb">B가족</span>은 출발 7일 전(11/14~21) 안에 온라인 신청하세요. 입국 시에는 화면이나 메일을 보여줄 필요 없이 여권 스캔으로 조회되며, 확인 메일(PDF)은 백업용으로 저장해 두세요. <a class="inline" href="https://twac.immigration.gov.tw/" target="_blank" rel="noopener">공식 사이트 열기</a></div>
 </section>
-<section id="itinerary"><h2>일정 (1안 변경2)</h2>
+<section id="itinerary"><h2>일정 (최종 확정)</h2><div class="daynav"><a href="#day1">Day1</a><a href="#day2">Day2</a><a href="#day3">Day3</a><a href="#day4">Day4</a></div>
 <p class="note">보라색 카드는 가이드 투어입니다. 각 Day의 「지도 보기」를 누르면 그날 동선이 구글 지도에 표시됩니다.</p>
-<div class="day-head"><b>Day 1 · 11.21(토)</b>
+<div class="day-head" id="day1"><b>Day 1 · 11.21(토)</b>
 <a class="btn" href="https://www.google.com/maps/dir/%E5%8F%B0%E7%81%A3%E6%A1%83%E5%9C%92%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4/Caesar%20Metro%20Taipei%20%E5%8F%B0%E5%8C%97/%E8%A5%BF%E9%96%80%E7%94%BA%20%E5%8F%B0%E5%8C%97%E5%B8%82" target="_blank" rel="noopener">지도 보기</a>
 </div>
 <div class="stop 이동"><div class="time">10:30-11:00</div><div><span class="tag">이동</span><div class="title">인천공항 예약주차장 입차·주차 <span class="cjk">(제2터미널 예약주차장)</span></div><div class="desc"><span class="fa">A가족</span> 차량 입차(예약 입차 시각 10:30, 앞뒤 4시간까지 가능), 운서동 3233-51 예약주차장에 주차한 뒤 주차 위치를 사진으로 저장</div><div class="tip">2026. 1. 14부터 예약주차장 위치가 변경됨, 주차 후 셔틀 승차 위치(공항 02번)를 안내판으로 확인</div></div></div>
@@ -127,7 +130,7 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
 <div class="stop 이동"><div class="time">17:00-17:30</div><div><span class="tag">이동</span><div class="title"><span class="fa">A가족</span> 제2터미널 → 제1터미널 이동 (<span class="fb">B가족</span> 합류) <span class="cjk">(桃園機場 T2→T1)</span></div><div class="desc"><span class="fa">A가족</span>은 입국장을 나와 공항 MRT 제2터미널역(A13)에서 제1터미널역(A12)으로 1정거장 이동 — 두 역 구간은 무료이며 이지카드 또는 신용카드(비접촉)로 개찰구를 통과, 열차 간격 약 7~8분 · 대안: 24시간 무료 순환버스(06:00-22:59 약 15분 간격, 23:00-05:59 약 20분 간격)</div><div class="tip">입국장에서 &quot;機場捷運 Airport MRT&quot; 표지판을 따라 지하 2층으로 이동(두 역 모두 B2) · 터미널 사이 지상 전철(스카이트레인)은 2026. 7. 1부터 운행 종료 · 이지카드는 바로 앞 일정에서 수령(받지 못했다면 순환버스 이용) · 클룩 기사님과 만나는 터미널은 바우처에서 확인</div></div></div>
 <div class="stop 이동"><div class="time">17:30-19:00</div><div><span class="tag">이동</span><div class="title">공항 → 호텔 이동 &amp; 체크인 (클룩 예약 완료) <span class="cjk">(Caesar Metro Taipei)</span></div><div class="desc">클룩 공항 이동 서비스 예약 완료(이코노미 9인승, 4명, 결제 54,700원) — 픽업 2026. 11. 21. 16:30(현지시간), 두 가족 합류 후 탑승해 약 45분~1시간 이동, 호텔 체크인 및 짐 정리</div><div class="tip"><span class="fb">B가족</span> 도착이 16:30이라 입국심사·수하물 후 합류는 17:30경으로 예상돼 픽업 시각이 이른 편 — 바우처에서 항공편 연동 여부·무료 대기 시간·픽업 위치(터미널)를 확인하고 필요하면 클룩에 시간 변경 문의</div></div></div>
 <div class="stop 식사"><div class="time">19:30-21:00</div><div><span class="tag">식사</span><div class="title">시먼딩 야시장 저녁 <span class="cjk">(西門町)</span></div><div class="desc">아종면선(대왕면선), 압육편(오리고기 국수), 호빵 아저씨 만두 등 — 이번 여행 첫 야시장</div><div class="tip">2가족이 메뉴별로 나눠 사서 조금씩 맛보면 4~5곳도 가능, 첫날은 무리하지 않고 숙소 근처에서 마무리</div></div></div>
-<div class="day-head"><b>Day 2 · 11.22(일)</b>
+<div class="day-head" id="day2"><b>Day 2 · 11.22(일)</b>
 <a class="btn" href="https://www.google.com/maps/dir/Caesar%20Metro%20Taipei%20%E5%8F%B0%E5%8C%97/%E4%B8%AD%E6%AD%A3%E7%B4%80%E5%BF%B5%E5%A0%82%20%E5%8F%B0%E5%8C%97%E5%B8%82/%E9%BC%8E%E6%B3%B0%E8%B1%90%E4%BF%A1%E7%BE%A9%E5%BA%97%20%E5%8F%B0%E5%8C%97%E5%B8%82/%E5%9B%9B%E5%9B%9B%E5%8D%97%E6%9D%91%20%E5%8F%B0%E5%8C%97%E5%B8%82/%E5%8F%B0%E5%8C%97101/%E7%94%9C%E8%9C%9C%E8%9C%9C%20%E5%8F%B0%E5%8C%97%E5%BA%97%20%E6%9E%97%E6%A3%AE%E5%8C%97%E8%B7%AF123%E8%99%9F%20%E5%8F%B0%E5%8C%97%E5%B8%82/Caesar%20Metro%20Taipei%20%E5%8F%B0%E5%8C%97" target="_blank" rel="noopener">지도 보기</a>
 </div>
 <div class="stop 식사"><div class="time">07:30-08:30</div><div><span class="tag">식사</span><div class="title">호텔 조식 <span class="cjk">(Caesar Metro Taipei)</span></div><div class="desc">자옌(중식) 또는 메트로 뷔페(양식) 중 선택, 06:30-10:00 운영</div><div class="tip">혼잡 시간대(08:30~09:30)는 피하는 게 여유로움</div></div></div>
@@ -142,7 +145,7 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
 <div class="stop 이동"><div class="time">18:00-18:40</div><div><span class="tag">이동</span><div class="title">101 → 티엔미미 이동 (택시) <span class="cjk">(林森北路 123號 2F)</span></div><div class="desc">Uber/택시 약 20~30분, 4인 1대, 요금 약 NT$250~350 · MRT 대안: 레드라인 101/세계무역센터역→중산역 약 25~30분 + 도보 약 8분</div><div class="tip">17:50쯤 Uber를 미리 호출해 101 앞 승차장에서 탑승, 기사님께 한자 주소 보여주기: 台北市中山區林森北路123號2樓 · 19:00 예약이라 18:40 도착을 목표로</div></div></div>
 <div class="stop 식사"><div class="time">19:00-20:30</div><div><span class="tag">식사</span><div class="title">티엔미미 저녁 (정지선 셰프) <span class="cjk">(甜蜜蜜 台北店)</span></div><div class="desc">《흑백요리사》 정지선 셰프의 중식 레스토랑, 예약 시각 19:00 · 식사 시간은 한 팀당 90분 · 대표 메뉴: 마라 크림 새우(麻辣奶油蝦, 보도된 시그니처 메뉴) · 그 밖의 메뉴는 현장 메뉴판·인스타그램(@tianmimi_taipei)에서 확인</div><div class="tip">inline 예약(예약 불이행 시 1인 NT$200) · 늦으면 자리 유지가 어려울 수 있어 시간 엄수 · 영업시간·메뉴는 방문 전 공식 인스타그램(@tianmimi_taipei)에서 확인</div></div></div>
 <div class="stop 이동"><div class="time">20:30-21:00</div><div><span class="tag">이동</span><div class="title">호텔 복귀 (택시) <span class="cjk">(Caesar Metro Taipei)</span></div><div class="desc">택시(Uber 권장) 약 15~20분, 요금 약 NT$150~250, 4인 1대 · MRT 대안: 중산역→시먼역(그린라인)→룽산쓰역(블루라인) 환승, 약 25~30분</div><div class="tip">피곤하면 택시가 편함, 호텔 명함이나 지도 캡처를 기사님께 보여주기</div></div></div>
-<div class="day-head"><b>Day 3 · 11.23(월)</b>
+<div class="day-head" id="day3"><b>Day 3 · 11.23(월)</b>
 <a class="btn" href="https://www.google.com/maps/dir/Caesar%20Metro%20Taipei%20%E5%8F%B0%E5%8C%97/%E8%89%8B%E8%88%BA%E9%BE%8D%E5%B1%B1%E5%AF%BA%20%E5%8F%B0%E5%8C%97%E5%B8%82/%E9%9D%92%E8%8D%89%E5%B7%B7%20%E5%8F%B0%E5%8C%97%E5%B8%82%E8%90%AC%E8%8F%AF%E5%8D%80/%E8%A5%BF%E9%96%80%E7%94%BA%20%E5%8F%B0%E5%8C%97%E5%B8%82/%E5%8F%B0%E5%8C%97%E8%BB%8A%E7%AB%99%20%E5%8F%B0%E5%8C%97%E5%B8%82/%E9%87%8E%E6%9F%B3%E5%9C%B0%E8%B3%AA%E5%85%AC%E5%9C%92%20%E6%96%B0%E5%8C%97%E5%B8%82/%E5%8D%81%E5%88%86%E7%80%91%E5%B8%83%20%E6%96%B0%E5%8C%97%E5%B8%82/%E4%B9%9D%E4%BB%BD%E8%80%81%E8%A1%97%20%E6%96%B0%E5%8C%97%E5%B8%82/%E8%8F%AF%E8%A5%BF%E8%A1%97%E8%A7%80%E5%85%89%E5%A4%9C%E5%B8%82%20%E5%8F%B0%E5%8C%97%E5%B8%82/Caesar%20Metro%20Taipei%20%E5%8F%B0%E5%8C%97" target="_blank" rel="noopener">지도 보기</a>
 </div>
 <div class="stop 식사"><div class="time">07:30-08:30</div><div><span class="tag">식사</span><div class="title">호텔 조식 <span class="cjk">(Caesar Metro Taipei)</span></div><div class="desc">조식은 06:30-10:00 운영, 오늘은 투어 전까지 여유가 있어 평소보다 한 시간 늦게 시작</div><div class="tip">투어 준비물(물·간식·보조배터리)은 조식 후 가방에 챙겨 바로 산책을 나가기</div></div></div>
@@ -154,7 +157,7 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
 <div class="stop 투어"><div class="time">12:00-20:50</div><div><span class="tag">1일 투어</span><div class="title">예류·스펀·지우펀 버스투어 &#x27;예스폭지&#x27; (타이베이역 12:00 출발) <span class="cjk">(野柳·十分·九份)</span></div><div class="desc">사전예약 완료(4인 39,600원) · 전용 차량+한국인/한국어 가이드, 현지 1일 차량·상해보험 포함 · 예류 13:00~14:00 → 스펀 폭포 14:50~15:50 → 스펀 천등 16:00~17:00 → 지우펀 17:50~19:50 → 하차 20:50</div><div class="tip">불포함: 예류 해양공원 입장료 NT$120(12세 이하 60), 스펀 천등 NT$200~350(색상 선택), 식사·교통비 등 개인경비 · 하차 장소는 지우펀·라오허제 야시장·타이베이역·시먼역 중 선택(가이드에게 요청) · 주말·공휴일엔 지우펀 구간 대중교통비가 필수라는데 11/23은 월요일이라 현장 확인</div></div></div>
 <div class="stop 이동"><div class="time">20:50-21:15</div><div><span class="tag">이동</span><div class="title">호텔 복귀 <span class="cjk">(Caesar Metro Taipei)</span></div><div class="desc">하차는 시먼역 또는 타이베이메인역 선택 → MRT 블루라인으로 룽산쓰역까지 시먼역 1정거장·메인역 2정거장(환승 없음), 약 5~10분 · 택시도 가능</div><div class="tip">시먼역 하차가 호텔과 가장 가까움, 하차 장소는 지우펀 일정이 끝나기 전에 가이드에게 미리 말하기</div></div></div>
 <div class="stop 식사"><div class="time">21:15-22:15</div><div><span class="tag">식사</span><div class="title">화시제 야시장 &amp; 룽산쓰 야경 (나이트캡) <span class="cjk">(華西街觀光夜市·艋舺龍山寺)</span></div><div class="desc">하루 종일 일정으로 지쳤을 테니 호텔 바로 앞 화시제에서 가볍게 마무리 — 이번 여행 두 번째 야시장</div><div class="tip">호텔에서 도보 5분 이내라 늦은 시간에도 부담 없음, 피곤하면 생략하고 바로 취침해도 무방 · 누가크래커(11/24 융캉제)는 인스타그램 공지로 내일 오픈 시간을 확인하고, 체크아웃 짐을 미리 정리해 두기</div></div></div>
-<div class="day-head"><b>Day 4 · 11.24(화)</b>
+<div class="day-head" id="day4"><b>Day 4 · 11.24(화)</b>
 <a class="btn" href="https://www.google.com/maps/dir/Caesar%20Metro%20Taipei%20%E5%8F%B0%E5%8C%97/%E6%B0%B8%E5%BA%B7%E8%A1%97%20%E5%8F%B0%E5%8C%97%E5%B8%82/%E6%B0%B8%E5%BA%B7%E8%A1%9715%E8%99%9F%20%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80/%E8%90%AC%E5%A4%A7%E8%B7%AF71%E5%B7%B79%E8%99%9F%20%E8%90%AC%E8%8F%AF%E5%8D%80%20%E5%8F%B0%E5%8C%97%E5%B8%82/Caesar%20Metro%20Taipei%20%E5%8F%B0%E5%8C%97/%E5%8F%B0%E7%81%A3%E6%A1%83%E5%9C%92%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4" target="_blank" rel="noopener">지도 보기</a>
 </div>
 <div class="stop 식사"><div class="time">07:00-07:50</div><div><span class="tag">식사</span><div class="title">호텔 조식 &amp; 체크아웃(짐 맡기) <span class="cjk">(Caesar Metro Taipei)</span></div><div class="desc">조식 오픈(06:30)에 맞춰 이른 조식 후 체크아웃, 짐은 프런트에 보관 요청(12:20 호텔 복귀 후 <span class="fb">B가족</span>은 로비 대기, 출발 때 찾기)</div><div class="tip">전날 밤 짐을 미리 싸 두면 아침이 여유로움</div></div></div>
@@ -413,7 +416,7 @@ nav .srch button{border:0;background:var(--line);color:var(--ink);border-radius:
 <tr><td>기타</td><td>타오위안공항 ↔ 시내 리무진버스(國光客運 등)는 편도 약 NT$125~145</td><td>심야 시간대는 배차 간격이 늘어남</td></tr>
 </tbody></table></div>
 </section>
-<footer>이 문서는 여행 계획 엑셀(1안 변경)을 기준으로 만들었으며, 가격·영업시간·투어 일정은 예약·방문 전에 다시 확인하세요.</footer>
+<footer>이 문서는 여행 계획 엑셀(최종 확정안)을 기준으로 만들었으며, 가격·영업시간·투어 일정은 예약·방문 전에 다시 확인하세요.</footer>
 <div id="qempty" class="sr-hide">일치하는 항목이 없습니다</div>
 </div><script>(function () {
   var input = document.getElementById('q');
